@@ -1,1 +1,16 @@
-<p>property works!</p>
+<div class="card m-4">
+    <div class="card-wrapper">
+      <img *ngIf="property.ImagesUrl" src="../../assets/Images/{{property.ImagesUrl}}.jpg" class="card-img-top" alt="..." />
+      <img *ngIf="!property.ImagesUrl" src="../../assets/Images/house1.png" class="card-img-top" alt="..." />
+      <ul class="text-center list-inline member-icon animate">
+          <li class="list-inline-item"><a routerLink="/property-detail/{{property.Id }}" class="btn btn-primary p-1 ">View</a></li>
+          <li class="list-inline-item"><a class="btn btn-primary p-1"> Edit</a></li>
+      </ul>
+    </div>
+    <div class="card-body p-4">
+      <h2>{{ property.Id }}</h2>
+      <h3>{{ property.Type }}</h3>
+      <h4>{{ property.Price }}</h4>
+    </div>
+  </div>
+  

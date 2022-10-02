@@ -11,12 +11,13 @@ const routes: Routes = [
     path:"login",component:LoginComponent
   },
   {
-    path:"Register",component:RegisterComponent
+    path:"register",component:RegisterComponent
   },
   {path:"",component:PropertyListComponent},
-  {path:"addcomponent",component:AddpropertyComponent},
+  {path:"Addcomponent",component:AddpropertyComponent},
   {path:"proprty-details/:id",component:PropertyDetailsComponent},
-  {path:'**',component:PropertyListComponent}
+  { path:'**' ,component:PropertyListComponent},
+  
 ];
 
 @NgModule({

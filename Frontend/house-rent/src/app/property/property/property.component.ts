@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
+import { IProprty } from '../IProperty';
 
 @Component({
   selector: 'app-property',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property.component.css']
 })
 export class PropertyComponent implements OnInit {
+  @Input() property:IProprty={Id:0,SellRent:1,Name:"",Type:"",Price:0,ImagesUrl:""};
 
   constructor() { }
 
