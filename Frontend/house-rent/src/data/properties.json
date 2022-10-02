@@ -1,0 +1,51 @@
+[
+    {
+    "Id":1,
+    "Name":"Dhaka LTD",
+    "SellRent":1,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":"1"
+   },
+   {
+    "Id":2,
+    "Name":"Cumilla LTD",
+    "SellRent":1,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":"2"
+   },
+   {
+    "Id":3,
+    "Name":"Jessor LTD",
+    "SellRent":2,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":"3"
+   },
+   {
+    "Id":4,
+    "Name":"Sirajgong LTD",
+    "SellRent":1,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":"4"
+   },
+   {
+    "Id":5,
+    "Name":"Magura LTD",
+    "SellRent":2,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":"5"
+   },
+   {
+    "Id":6,
+    "Name":"Magura LTD",
+    "SellRent":2,
+    "Type":"House",
+    "Price":2000,
+    "ImagesUrl":""
+   }
+
+  ]
