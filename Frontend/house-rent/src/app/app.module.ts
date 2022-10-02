@@ -10,6 +10,7 @@ import { PropertyComponent } from './property/property/property.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
 import { DetailsComponent } from './property/details/details.component';
 import { PropertyDetailsComponent } from './property/property-details/property-details.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PropertyDetailsComponent } from './property/property-details/property-d
     PropertyComponent,
     PropertyListComponent,
     DetailsComponent,
-    PropertyDetailsComponent
+    PropertyDetailsComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
