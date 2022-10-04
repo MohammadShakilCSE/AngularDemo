@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/User';
+import { AlartfyService } from 'src/app/services/alartfy.service';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import {ConfirmPassword} from './Confirm-password.validators';
+
 
 @Component({
   selector: 'app-register',
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
    userSubmited:boolean=false;
    
-  constructor(private fb:FormBuilder,private userService:UserserviceService) { }
+  constructor(private fb:FormBuilder,private userService:UserserviceService,private alartfy:AlartfyService) { }
 
   ngOnInit(): void {
    this.createRegistrationForm();
@@ -48,6 +50,9 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(this.user);
     this.registrationForm.reset();
     this.userSubmited=false;
+    this.alartfy.success("Successfully Resgisterd");
+   }else{
+    this.alartfy.error("Kindly provides all fileds data");
    }
   }
 
