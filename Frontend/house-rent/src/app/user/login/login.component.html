@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form (ngSubmit)="submitForm(loginForm)" #loginForm="ngForm">
+          <div class="form-group col-12">
+            <label for="UserName">Username</label>
+            <input
+              type="text"
+              #propuser="ngModel"
+              ngModel
+              name="UserName"
+              class="form-control"
+              required
+            />
+            <span *ngIf="!propuser.valid && propuser.touched" class="error-message">
+                please enter user
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              #proppassword="ngModel"
+              ngModel
+              name="Password"
+              class="form-control"
+              required
+            />
+            <span *ngIf="!proppassword.valid && proppassword.touched" class="error-message">
+                please enter password
+            </span>
+          </div>
+          <div class="form-group col-12 m-2">
+            <button
+              type="submit"
+              [disabled]="!loginForm.valid"
+              class="btn btn-primary"
+            >
+              Submit
+            </button>
+            <button type="button" class="btn btn-secondary m-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

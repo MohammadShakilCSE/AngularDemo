@@ -1,31 +1,105 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" routerLink="/">eApp</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link"  [routerLinkActiveOptions]="{exact:true}" routerLink="/" routerLinkActive="active">Buy</a>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" routerLink="/">eApp</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            routerLinkActive="active"
+            >Buy</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/rent" routerLinkActive="active"
+            >Rent</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/Addcomponent"
+            routerLinkActive="active"
+            >List of property(free)</a
+          >
+        </li>
+      </ul>
+      <div>
+        <ul class="navbar-nav nav">
+          <li class="nav-item" *ngIf="!onLogin()">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              routerLink="login"
+              routerLinkActive="active"
+              >Login</a
+            >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/rent" routerLinkActive="active" >Rent</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/Addcomponent" routerLinkActive="active" >List of property(free)</a>
+          <!-- <li class="nav-item" *ngIf="onLogin()" (click)="onLogout()">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              >Logout</a
+            >
+          </li>-->
+          <div
+            dropdown class="dropdown"
+            *ngIf="onLogin()"
+            style="margin-right: 40px;"
+          >
+            <a
+              href
+              id="basic-link"
+              dropdownToggle
+              (click)="(false)"
+              aria-controls="basic-link-dropdown"
+              class="nav-link"
+              style="cursor: pointer"
+              >Wellcome {{loggedInUser}}</a
+            >
+            <div
+              id="basic-link-dropdown"
+              *dropdownMenu
+              class="dropdown-menu"
+              role="menu"
+              aria-labelledby="basic-link"
+            >
+              <li>
+                <a class="dropdown-item"  href="#">View Deshboard</a>
+              </li>
+              <li>
+                <a class="dropdown-item"  href="#">My Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onLogout()" href="#">Logout</a>
+              </li>
+            </div>
+          </div>
+
+          <li class="nav-item" *ngIf="!onLogin()">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              routerLink="register"
+              routerLinkActive="active"
+              >Register</a
+            >
           </li>
         </ul>
-        <div >
-            <ul class="navbar-nav nav ">
-                <li class="nav-item">
-                  <a class="nav-link" style="cursor: pointer;" routerLink="login" routerLinkActive="active"  >Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" style="cursor: pointer;" routerLink="register" routerLinkActive="active" >Register</a>
-                </li>
-            </ul>
-        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
