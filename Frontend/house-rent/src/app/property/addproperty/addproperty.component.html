@@ -1,57 +1,151 @@
 <div class="card">
   <div class="card-header">Add New Property</div>
   <div class="card-body">
-    <form (ngSubmit)="submitForm(Form)" #Form="ngForm">
-      <div class="from-group col-12">
-        <label for="Name">Name</label>
-        <input
-          type="text"
-          #propname="ngModel"
-          ngModel
-          name="Name"
-          class="form-control"
-          required
-          minlength="5"
-        />
-        <span *ngIf="!propname.valid && propname.touched" class="error-message">
-          <span *ngIf="propname.errors?.['required']">Please enter name</span>
-          <span *ngIf="propname.errors?.['minlength']"
-            >Need atleast five char</span
-          >
-        </span>
+    <form>
+      <div>
+        <tabset #TabsForm>
+          <tab heading="Basic Info">
+            <div class="form-group col-12">
+              <input type="radio" id="sell" value="1" name="SellRent">
+              <label class="m-2">Sell</label>
+  
+              <input type="radio" id="rent" value="2" name="SellRent">
+              <label class="m-2">Rent</label>
+            </div>
+              <div class="from-group col-12">
+                <label for="Name">Name</label>
+                <input type="text" #propname="ngModel" ngModel name="Name" class="form-control" required minlength="5" />
+                <span *ngIf="!propname.valid && propname.touched" class="error-message">
+                  <span *ngIf="propname.errors?.['required']">Please enter name</span>
+                  <span *ngIf="propname.errors?.['minlength']">Need atleast five char</span>
+                </span>
+              </div>
+              <div class="from-group col-12">
+                <label for="Type">Type</label>
+                <input type="text" ngModel #propType="ngModel" name="Type" id="type" class="form-control" required />
+                <p *ngIf="!propType.valid && propType.touched" class="error-message">
+                  Please enter a Type
+                </p>
+              </div>
+              <div class="from-group col-12">
+                <label for="Price">Price</label>
+                <input type="text" ngModel #propprice="ngModel" name="Price" id="price" class="form-control" required />
+                <p *ngIf="!propprice.valid && propprice.touched" class="error-message">
+                  Please enter house price
+                </p>
+              </div>
+  
+              <div class="from-group "> 
+                <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(1)">Next</button>
+                
+              </div>
+          </tab>
+          <tab heading="Priceing And Area">
+            <div class="form-group col-12">
+              <label>Price (in USD)</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Security (in USD)</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Maintenance (in USD)</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Built Area (in Sqr Feet)</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Carpet Area(in Sqr Feet)</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="from-group "> 
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(2)">Next</button>
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(0)">Back</button>
+            </div>
+          </tab>
+          <tab heading="Address">
+            <div class="form-group col-12">
+              <label>Floor</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Total Floor</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Address</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Landmark</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="from-group "> 
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(3)">Next</button>
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(1)">Back</button>
+            </div>
+          </tab>
+          <tab heading="Other Info">
+            <div class="form-group col-12">
+              <label>Ready to Move</label><br/>
+              <input type="radio" id='Yes' value='1' name="RTM">
+              <label class="m-2">Yes</label>
+  
+              <input type="radio" id="No" value='2' name="RTM">
+              <label class="m-2">No</label>
+            </div>
+  
+            <div class="form-group col-3">
+              <label>Possession/Avaialble From</label>
+              <input type="date" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Age of Property</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Gated Community</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Main Entrance</label>
+              <input type="text" class="form-control">
+            </div>
+  
+            <div class="form-group col-12">
+              <label>Description</label>
+              <textarea type="text" class="form-control" rows="6"></textarea>
+            </div>
+  
+            <div class="from-group "> 
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(4)">Next</button>
+              <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(2)">Back</button>
+            </div>
+          </tab>
+          <tab heading="Photos">
+            <div class="form-group col-12">
+              <div class="photo-control">
+                  <button class="mt-5" type="button">Upload</button> <br>
+                  This is under construction
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary mt-2 col-12" (click)="selectTab(3)">Back</button>
+          </tab>
+        </tabset>
       </div>
-      <div class="from-group col-12">
-        <label for="Type">Type</label>
-        <input
-          type="text"
-          ngModel
-          #propType="ngModel"
-          name="Type"
-          id="type"
-          class="form-control"
-          required
-        />
-        <p *ngIf="!propType.valid && propType.touched" class="error-message">
-          Please enter a Type
-        </p>
-      </div>
-      <div class="from-group col-12">
-        <label for="Price">Price</label>
-        <input
-          type="text"
-          ngModel
-          #propprice="ngModel"
-          name="Price"
-          id="price"
-          class="form-control"
-          required
-        />
-        <p *ngIf="!propprice.valid && propprice.touched" class="error-message">
-          Please enter house price
-        </p>
-      </div>
-      <button type="submit" class="btn btn-primary m-2">Save</button>
-      <button type="submit" class="btn btn-primary">Reset</button>
     </form>
   </div>
 </div>
