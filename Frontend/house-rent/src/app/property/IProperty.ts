@@ -1,8 +1,8 @@
 export interface IProprty{
-    Id:number;
+    Id:number|null;
     Name:string;
-    SellRent:number
+    SellRent:number| null;
     Type:string;
-    Price:number;
+    Price:number |null;
     ImagesUrl?:string
 }
